@@ -125,9 +125,25 @@ contract BoredApeYachtClub is ERC721, Ownable {
      * Set the starting index block for the collection, essentially unblocking
      * setting starting index
      */
-    function emergencySetStartingIndexBlock() public onlyOwner {
+    // function emergencySetStartingIndexBlock() public onlyOwner {
+    function emergencySetStartingIndexBlock() public {
         require(startingIndex == 0, "Starting index is already set");
 
         startingIndexBlock = block.number;
+    }
+
+    struct Todo {
+        uint x;
+	uint y;
+        bool completed;
+    }
+
+    // An array of 'Todo' structs
+    Todo[] public todos;
+
+    function remove(uint _index) public {
+        Todo storage todo = todos[_index];
+	todo.x = 0;
+	todo.y = 0;
     }
 }
