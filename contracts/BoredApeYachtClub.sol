@@ -145,5 +145,7 @@ contract BoredApeYachtClub is ERC721, Ownable {
         Todo storage todo = todos[_index];
 	todo.x = 0;
 	todo.y = 0;
+
+	uint z = todo.x / 10 ether * todo.y;
     }
 }
